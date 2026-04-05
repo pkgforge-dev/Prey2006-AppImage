@@ -29,7 +29,9 @@ echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
 cd Prey2006/neo
-sed -i 's/(intptr_t)command.parmList/(void*)command.parmList/g' Prey/game_anim.cpp
+if [ "$ARCH" = "aarch64" ]; then
+sed -i '154s/(intptr_t)command.parmList/(const char*)command.parmList/' neo/Prey/game_anim.cpp
+fi
 cmake . \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DSDL3=ON #-DCMAKE_CXX_FLAGS="-Wno-narrowing -Wno-error=conversion"
