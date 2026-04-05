@@ -6,21 +6,22 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm cmake openal sdl3
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
+echo "Building Prey2006..."
+echo "---------------------------------------------------------------"
+REPO="https://github.com/FriskTheFallenHuman/Prey2006"
+VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
+git clone --depth 1 "$REPO" ./Prey2006
+echo "$VERSION" > ~/version
 
-# If the application needs to be manually built that has to be done down here
-
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+mkdir -p ./AppDir/bin
+cd ./Prey2006/neo
+git apply ../../hhprofiler.patch
+cmake ./ -DCMAKE_BUILD_TYPE=Release -DSDL3=ON
+make -j$(nproc)
+mv -v game*.so ../output/linux/prey06 ../output/linux/prey06ded ../output/linux/base ../../AppDir/bin
