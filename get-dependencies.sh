@@ -34,7 +34,7 @@ sed -i '154s/(intptr_t)command.parmList/(const char*)command.parmList/' Prey/gam
 fi
 cmake . \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DSDL3=ON #-DCMAKE_CXX_FLAGS="-Wno-narrowing -Wno-error=conversion"
+	-DSDL3=ON
 make -j$(nproc)
 mv -v gamex86_64.so ../../AppDir/bin
 mv -v ../output/linux/prey06 ../output/linux/prey06ded ../output/linux/base ../../AppDir/bin
