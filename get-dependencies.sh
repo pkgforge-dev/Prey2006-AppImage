@@ -33,5 +33,5 @@ cmake . \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DSDL3=ON
 make -j$(nproc)
-mv -v prey06 ../../AppDir/bin
-mv -v prey06ded ../../AppDir/bin
+mv -v gamex86_64.so ../../AppDir/bin
+mv -v ../output/linux/prey06 ../output/linux/prey06ded ../output/linux/base ../../AppDir/bin
