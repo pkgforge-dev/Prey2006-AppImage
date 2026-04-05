@@ -20,3 +20,8 @@ get-debloated-pkgs --add-common --prefer-nano
 #make-aur-package PACKAGENAME
 
 # If the application needs to be manually built that has to be done down here
+
+mkdir -p ./AppDir/bin
+
+mv -v prey06 ./AppDir/bin
+mv -v prey06ded ./AppDir/bin
