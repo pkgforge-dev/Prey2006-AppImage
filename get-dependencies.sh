@@ -29,6 +29,7 @@ echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
 cd Prey2006/neo
+sed -i '154s/(intptr_t)command.parmList/(void*)command.parmList/' Prey/game_anim.cpp
 cmake . \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DSDL3=ON
