@@ -1,0 +1,7 @@
+#!/bin/false
+dir=${XDG_DATA_HOME:-~/.local/share}/prey06
+mkdir -p "$dir"
+if [ ! -f "$dir"/base/pak007.pk4 ]; then
+  cp "$APPDIR"/bin/pak007.pk4 "$dir"/base
+  cp -f "$APPDIR"/bin/game02.pk4 "$dir"/base
+fi
