@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Prey 2006
+Comment="Prey 2006 SDK integrated with Doom 3 GPL release"
+Exec=prey06
+Icon=prey
+StartupWMClass=prey06
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Application;Game;Shooting;FPS;
