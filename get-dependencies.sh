@@ -22,6 +22,10 @@ get-debloated-pkgs --add-common --prefer-nano
 # If the application needs to be manually built that has to be done down here
 
 mkdir -p ./AppDir/bin
-
-mv -v prey06 ./AppDir/bin
-mv -v prey06ded ./AppDir/bin
+cd Prey2006/neo && mkdir build && cd build
+cmake .. \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DSDL3=ON
+make -j$(nproc)
+mv -v prey06 ../../../AppDir/bin
+mv -v prey06ded ../../../AppDir/bin
