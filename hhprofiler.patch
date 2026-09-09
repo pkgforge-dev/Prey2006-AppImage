@@ -1,0 +1,17 @@
+diff --git a/neo/renderer/Cinematic.h b/neo/renderer/Cinematic.h
+index f0a3ac2..199d706 100644
+--- a/neo/renderer/Cinematic.h
++++ b/neo/renderer/Cinematic.h
+@@ -118,9 +118,9 @@ public:
+ 						hhProfilerGraph() {}
+ 						~hhProfilerGraph() {}
+ 
+-	bool				InitFromFile( const char *qpath, bool looping );
+-	cinData_t			ImageForTime( int milliseconds );
+-	int					AnimationLength();
++	bool				InitFromFile( const char *qpath, bool looping ) { return false; }
++	cinData_t			ImageForTime( int milliseconds ) { cinData_t cin = {}; return cin; }
++	int					AnimationLength() { return 0; }
+ 
+ private:
+ };
