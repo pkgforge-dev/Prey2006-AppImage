@@ -19,7 +19,7 @@ echo "Building Prey2006..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/FriskTheFallenHuman/Prey2006"
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-git clone "$REPO" ./Prey2006
+git clone --depth 1 "$REPO" ./Prey2006
 echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
@@ -31,5 +31,4 @@ cmake . \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DSDL3=ON
 make -j$(nproc)
-mv -v game*.so ../../AppDir/bin
-mv -v ../output/linux/prey06 ../output/linux/prey06ded ../output/linux/base ../../AppDir/bin
+mv -v game*.so ../output/linux/prey06 ../output/linux/prey06ded ../output/linux/base ../../AppDir/bin
