@@ -20,8 +20,8 @@ git clone --depth 1 "$REPO" ./Prey2006
 echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
-cd Prey2006/neo
+cd ./Prey2006/neo
 git apply ../../hhprofiler.patch
-cmake . -DCMAKE_BUILD_TYPE=Release -DSDL3=ON
+cmake ./ -DCMAKE_BUILD_TYPE=Release -DSDL3=ON
 make -j$(nproc)
 mv -v game*.so ../output/linux/prey06 ../output/linux/prey06ded ../output/linux/base ../../AppDir/bin
